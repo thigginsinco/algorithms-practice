@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//guess a number b/w 1 and 100
+		//have the computer guess in that same range
+		//ask user if the guess is the user number
+		//y = yes, h = too high, l =  too low
+		var isRight = false;
+		var min = 1;
+		var max = 101;
+
+		console.log("Think of a number a number between 1 and 100, but don't tell me.");
+		//while (!isRight) {
+		while (!isRight) {
+			 //var compGuess = Math.floor(Math.random() * (max - min) + min);
+			 var compGuess = Math.floor((max + min) / 2); //max guesses of 7
+			 var userAns = prompt("Is " + compGuess + " your guess? Enter Y for yes, H for too high, or L for too low");
+			 userAns = userAns.toUpperCase()
+			 if (userAns=== "Y") {
+			 	console.log("I guessed right! Yay!");
+			 	isRight = true;
+			 }else if (userAns === "H") {
+			 	max = compGuess;
+			 }else if (userAns === "L") {
+			 	min = compGuess;
+			 }else {
+			 		prompt("you've entered in incorrect value!");
+			 	}
+			 }
+	</script>
+</body>
+</html>

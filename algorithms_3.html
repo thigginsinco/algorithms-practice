@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//need to create an array to hold the fibonacci numbers under 2 
+		//million
+		//then need to sum the number of the even values in this array
+		fibSum = 0;
+		arrSum = 0;
+		var fibArray = [ 1, 1 ];
+		while (arrSum < 2000000) {
+			arrSum = (fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2]);
+			fibArray.push(arrSum)
+		}
+		console.log(fibArray);
+		//made the array of all the numbers, now get the evens and sum them
+		for (var i = 0; i < fibArray.length; i ++) {
+			if(fibArray[i] % 2===0) {
+				fibSum += fibArray[i];
+				//console.log(fibSum); 
+		}
+		}
+
+		console.log(fibSum)
+	</script>
+</body>
+</html>

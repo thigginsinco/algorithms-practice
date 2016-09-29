@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//get a user input and 
+		//put dashes between any each 2 odd digits
+		//get user input number
+		//put number into an array
+		//if arr[i] is odd and arr[i + 1] is odd
+		//put a dash between - numbers
+		var arr = [];
+		
+	while (isNaN){
+		var number = prompt("Please enter a number:");
+		numbers = number;
+		number = parseFloat(number);
+		if (!isNaN(number)) {
+			//console.log(number);
+			//console.log(numbers.split(""));
+		 	var numberArr = (numbers.split(""));
+			//console.log(numberArr)
+		}
+		isNaN = false
+	}
+	for (i=0; i < numberArr.length; i++) {
+		if (numberArr[i] % 2 !== 0 && numberArr[i + 1] % 2 !== 0) {
+			arr.push(numberArr[i]);
+			arr.push("-");
+		}else {
+			arr.push(numberArr[i]);
+		}
+	}
+	console.log(arr.join(""));
+	</script>
+</body>
+</html>

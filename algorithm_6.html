@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+// In the style of Colossal Cave Adventure, write a three-room adventure game. The user should start in one room: “You are in a room. There is an exit to the north and to the west”. Try using the prompt text for output (prompt ("you are in a room..."))
+
+// The user will type an instruction into the prompt (e.g. “go north”). Figure out what the user wants to do (“go north” or “go west”) and follow that instruction.
+
+// Put a dragon in the north room and a shield in the west room. They must get the shield (“get shield” in the west room) to get past the dragon. The west room has an exit to the east (the starting room) and the north room has an exit to the north and south (the win condition and the starting room).
+
+// When they get past the dragon (“go north” in the north room while holding the shield), they win the game.
+
+// If you are feeling adventurous, try adding even more rooms, items, and challenges to this game!
+	win_game = false;
+	has_shield = false;
+	var room = "start";
+	//debugger;
+	while (!win_game) {
+		if (room === "start") {
+			var userDir = prompt("You are in a room. There is an exit to the north, and another to the west. You may choose a direction...")
+			userDir = userDir.toUpperCase();
+			if (userDir === "EAST" || userDir === "SOUTH") {
+				room = "start";
+			}else if	(userDir === "WEST") {
+				room = "shield";
+			}else if (userDir === "NORTH") {
+				room = "dragon";
+			}
+
+		}else if (room === "shield") {
+				console.log(room);
+				console.log(userDir);
+				//debugger;
+				if (has_shield) {
+					userDir = prompt("This room is empty, there is an exit to the East.");
+					userDir = userDir.toUpperCase();
+					if (userDir === "EAST") {
+							room = "start";
+					}
+				}else {
+					var getShield = prompt("There is a shield in this room. Would you like to pick it up? Yes or No?");
+					var getShield = getShield.toUpperCase();
+					if (getShield === "YES") {
+						has_shield =true;
+						var UserDir = prompt("This is an empty room. There is a door to the East. Where would you like to go?");
+						userDir = userDir.toUpperCase();
+						if (userDir === "EAST") {
+							room = "start";
+						}
+					}
+				}
+		
+		}else if (room === "dragon") {
+				//debugger;
+				if (has_shield) {
+					userDir = prompt("You can see an exit to the north, next to a Giant Dragon. Would you like to try for that door? Or Exit back to the south, the way you came in?");
+					userDir = userDir.toUpperCase();
+					if (userDir === "NORTH") {
+						room = "win";
+					}
+				}else {
+					userDir = prompt("You see an exit to the north, and a large shadowy figure off to the side. Suddenly the chamber is filled with light, and intense heat emulating from a rather large and pissed off dragon. The flames engulf you and turn you to ashes...The dragon has smited you...or is it smote? Ah, either way you are toast...would you like to try again?");
+						userDir = userDir.toUpperCase();
+					
+						if (userDir != "YES") {
+							win_game = true;
+						}else
+							room = "start"
+					}
+
+		
+		}else if (room === "win") {
+			userDir = prompt("You have won, would you lke to try again");
+			userDir = userDir.toUpperCase();
+			if (userDir === "YES") {
+				room = "start";
+				has_shield = false;	
+			}else 
+				win_game = true;
+			}
+		
+		else 
+			userDir = prompt("You have entered an invalid direction, please try again...");
+		
+
+
+
+
+
+
+		//}//inner while loop
+	}//while loop
+	</script>
+</body>
+</html>
